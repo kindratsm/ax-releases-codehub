@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   angular.module("axReleases.widgets").component("entityAdd", {
@@ -8,6 +8,7 @@
   });
 
   EntityAddController.$inject = [];
+
   function EntityAddController() {
     const ctrl = this;
   }

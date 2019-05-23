@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   angular.module("axReleases.products").component("productsList", {
@@ -8,6 +8,7 @@
   });
 
   ProductsListController.$inject = [];
+
   function ProductsListController() {
     const ctrl = this;
   }

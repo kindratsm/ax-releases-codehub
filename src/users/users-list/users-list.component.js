@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   angular.module("axReleases.users").component("usersList", {
@@ -8,6 +8,7 @@
   });
 
   UsersListController.$inject = [];
+
   function UsersListController() {
     const ctrl = this;
   }

@@ -1,0 +1,7 @@
+.d-flex > .btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.d-flex > .btn {
+  width: 8rem;
+}
