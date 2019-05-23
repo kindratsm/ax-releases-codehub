@@ -1,0 +1,13 @@
+{
+    "name": "ax-releases-codehub",
+    "description": "Axia Releases Code.Hub Greece Training Project",
+    "license": "MIT",
+    "version": "1.0.0",
+    "main": "src/index.html",
+    "author": {
+        "name": "Stanislav Kindrat"
+    },
+    "dependencies": {
+        "angular": "1.7.8"
+    }
+}
