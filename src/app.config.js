@@ -1,13 +1,12 @@
 (function() {
-    'use strict';
+  "use strict";
 
-    angular.module('axReleases')
-        .config(configure);
+  angular.module("axReleases").config(configure);
 
-    configure.$inject = ['$logProvider', '$compileProvider'];
+  configure.$inject = ["$logProvider", "$compileProvider"];
 
-    function configure($logProvider, $compileProvider) {
-        $logProvider.debugEnabled(true);
-        $compileProvider.debugInfoEnabled(false);
-    }
+  function configure($logProvider, $compileProvider) {
+    $logProvider.debugEnabled(true);
+    $compileProvider.debugInfoEnabled(false);
+  }
 })();

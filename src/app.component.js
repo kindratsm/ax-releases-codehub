@@ -1,28 +1,25 @@
 (function() {
-    'use strict';
+  "use strict";
 
-    // Usage:
-    // 
-    // Creates:
-    // 
+  // Usage:
+  //
+  // Creates:
+  //
 
-    angular
-        .module('axReleases')
-        .component('axReleases', {
-            templateUrl: 'app.component.html',
-            controller: ControllerController,
-            controllerAs: '$ctrl'
-        });
+  angular.module("axReleases").component("axReleases", {
+    templateUrl: "app.component.html",
+    controller: ControllerController,
+    controllerAs: "$ctrl"
+  });
 
-    ControllerController.$inject = [];
-    function ControllerController() {
-        var $ctrl = this;
-        
+  ControllerController.$inject = [];
+  function ControllerController() {
+    var $ctrl = this;
 
-        ////////////////
+    ////////////////
 
-        $ctrl.$onInit = function() { };
-        $ctrl.$onChanges = function(changesObj) { };
-        $ctrl.$onDestroy = function() { };
-    }
+    $ctrl.$onInit = function() {};
+    $ctrl.$onChanges = function(changesObj) {};
+    $ctrl.$onDestroy = function() {};
+  }
 })();

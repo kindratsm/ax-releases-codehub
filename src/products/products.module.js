@@ -1,7 +1,5 @@
 (function() {
-    'use strict';
+  "use strict";
 
-    angular.module('axReleases.products', [
-        
-    ]);
+  angular.module("axReleases.products", []);
 })();
