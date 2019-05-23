@@ -7,6 +7,6 @@
 
   function configure($logProvider, $compileProvider) {
     $logProvider.debugEnabled(true);
-    $compileProvider.debugInfoEnabled(false);
+    $compileProvider.debugInfoEnabled(true);
   }
 })();

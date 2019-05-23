@@ -9,12 +9,10 @@
 
   AppController.$inject = [];
   function AppController() {
-    var $ctrl = this;
+    const ctrl = this;
 
     ////////////////
 
-    $ctrl.$onInit = function() {};
-    $ctrl.$onChanges = function(changesObj) {};
-    $ctrl.$onDestroy = function() {};
+    ctrl.title = "Axia Releases Application";
   }
 })();
