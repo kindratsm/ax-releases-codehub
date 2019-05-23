@@ -1,19 +1,14 @@
 (function() {
   "use strict";
 
-  // Usage:
-  //
-  // Creates:
-  //
-
-  angular.module("axReleases").component("axReleases", {
+  angular.module("axReleases").component("app", {
     templateUrl: "app.component.html",
-    controller: ControllerController,
+    controller: AppController,
     controllerAs: "$ctrl"
   });
 
-  ControllerController.$inject = [];
-  function ControllerController() {
+  AppController.$inject = [];
+  function AppController() {
     var $ctrl = this;
 
     ////////////////
