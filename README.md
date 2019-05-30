@@ -1,4 +1,4 @@
-# ax-releases-codehub
+# Axia Releases Code.Hub
 
 ### Prepare project
 ```
