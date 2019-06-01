@@ -1,7 +1,12 @@
-.d-flex > .btn + .btn {
-  margin-left: 0.5rem;
+.action-bar {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.d-flex > .btn {
+.action-bar > .btn {
   width: 8rem;
+}
+
+.action-bar > .btn + .btn {
+  margin-left: 0.5rem;
 }
