@@ -35,5 +35,7 @@
     ];
 
     logger.info('App component controller initialized');
+    logger.warn('Test warning message');
+    logger.error('Test error message');
   }
 })();

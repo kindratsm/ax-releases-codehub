@@ -12,15 +12,15 @@
     this.error = error;
 
     function info(message) {
-      console.log(message);
+      console.info(`[info] ${message}`);
     }
 
     function warn(message) {
-      console.warn(message);
+      console.warn(`[warning] ${message}`);
     }
 
     function error(message) {
-      console.error(message);
+      console.error(`[error] ${message}`);
     }
   }
 })();
