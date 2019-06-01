@@ -2,6 +2,7 @@
   "use strict";
 
   angular.module("axReleases", [
+    "axReleases.services",
     "axReleases.filters",
     "axReleases.widgets",
     "axReleases.users",

@@ -7,15 +7,12 @@
     controllerAs: "$ctrl"
   });
 
-  AppController.$inject = [];
+  AppController.$inject = ['logger'];
 
-  function AppController() {
+  function AppController(logger) {
     const ctrl = this;
 
-    ////////////////
-
     ctrl.title = "Axia Releases Application";
-
 
     ctrl.obj = {
       name: 'John',
@@ -36,5 +33,7 @@
         age: 24
       }
     ];
+
+    logger.info('App component controller initialized');
   }
 })();

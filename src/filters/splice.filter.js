@@ -8,8 +8,6 @@
   function Splice() {
     return SpliceFilter;
 
-    ////////////////
-
     function SpliceFilter(array, indexFrom, indexTo) {
       if (!angular.isArray(array) || array.length <= 0
         || typeof indexFrom !== 'number'
