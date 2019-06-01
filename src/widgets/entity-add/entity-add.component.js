@@ -4,12 +4,19 @@
   angular.module("axReleases.widgets").component("entityAdd", {
     templateUrl: "widgets/entity-add/entity-add.component.html",
     controller: EntityAddController,
-    controllerAs: "$ctrl"
+    bindings: {
+      onCreate: '&',
+      onCancel: '&'
+    }
   });
 
   EntityAddController.$inject = [];
 
   function EntityAddController() {
     const ctrl = this;
+    ctrl.$onInit = onInit;
+
+    function onInit() {
+    }
   }
 })();

@@ -11,6 +11,7 @@
 
   function AppController(logger) {
     const ctrl = this;
+    ctrl.$onInit = onInit;
 
     ctrl.title = "Axia Releases Application";
 
@@ -34,8 +35,26 @@
       }
     ];
 
-    logger.info('App component controller initialized');
-    logger.warn('Test warning message');
-    logger.error('Test error message');
+
+
+    function onInit() {
+      logger.info('App component controller initialized');
+
+      ctrl.onCreate = onCreate;
+      ctrl.onUpdate = onUpdate;
+      ctrl.onCancel = onCancel;
+    }
+
+    function onCreate() {
+      logger.warn('Create');
+    }
+
+    function onUpdate() {
+      logger.warn('Update');
+    }
+
+    function onCancel() {
+      logger.warn('Cancel');
+    }
   }
 })();
