@@ -15,5 +15,12 @@
     ////////////////
 
     ctrl.title = "Axia Releases Application";
+
+
+    ctrl.obj = {
+      name: 'John',
+      age: 24
+    }
+    ctrl.value = 55;
   }
 })();
