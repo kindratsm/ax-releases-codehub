@@ -22,5 +22,19 @@
       age: 24
     }
     ctrl.value = 55;
+    ctrl.array = [
+      {
+        name: 'John',
+        age: 25
+      },
+      {
+        name: 'Stelios',
+        age: 26
+      },
+      {
+        name: 'George',
+        age: 24
+      }
+    ];
   }
 })();
