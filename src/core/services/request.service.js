@@ -4,27 +4,42 @@
   angular.module('axReleases.core')
     .service('requestService', RequestService);
 
-  RequestService.$inject = ['$http', 'logger', 'apiUrl'];
-  function RequestService($http, logger, apiUrl) {
+  RequestService.$inject = ['$http', 'common', 'toastr', 'apiUrl'];
+  function RequestService($http, common, toastr, apiUrl) {
     this.getArray = getArray;
     this.getObject = getObject;
+    this.createObject = createObject;
+    this.updateObject = updateObject;
 
-    function validateUrl(url) {
-      if (!url) {
-        throw new Error('Invalid URL');
+    function validateEntity(entity) {
+      if (!entity || typeof entity !== 'string') {
+        throw new Error('Invalid Entity');
       }
     }
 
     function validateId(id) {
-      if (!id || typeof id !== 'number' || id <= 0) {
+      if (!common.isValidId(id)) {
         throw new Error('Invalid ID');
       }
     }
 
-    function getArray(url) {
-      validateUrl(url);
+    function validateObject(obj, create) {
+      if (!obj || typeof obj !== 'object'
+        && ((!!create && !common.isValidId(obj.Id)) || (!create && common.isValidId(obj.Id)))) {
+        throw new Error('Invalid object')
+      }
+    }
 
-      return $http.get(`${apiUrl}/${url}`)
+    function catchHttpEntityError(entity, error) {
+      if (error) {
+
+      }
+    }
+
+    function getArray(entity) {
+      validateEntity(entity);
+
+      return $http.get(`${apiUrl}/${entity}`)
         .then(response => {
           if (!!response && !!response.data && !!response.data.value && angular.isArray(response.data.value)) {
             return response.data.value;
@@ -32,15 +47,15 @@
 
           return [];
         }).catch(error => {
-          logger.error(error);
+          catchHttpError(error);
         });
     }
 
-    function getObject(url, id) {
-      validateUrl(url);
+    function getObject(entity, id) {
+      validateEntity(entity);
       validateId(id);
 
-      return $http.get(`${apiUrl}/${url}/${id}`)
+      return $http.get(`${apiUrl}/${entity}/${id}`)
         .then(response => {
           if (!!response && !!response.data && typeof response.data === 'object') {
             const obj = response.data;
@@ -57,8 +72,44 @@
 
           return null;
         }).catch(error => {
-          logger.error(error);
-        })
+          catchHttpError(error);
+        });
+    }
+
+    function createObject(entity, obj) {
+      validateEntity(entity);
+      validateObject(obj, true);
+
+      return $http.post(`${apiUrl}/${entity}`, obj)
+        .then(response => {
+          if (!!response && !!response.data && typeof response.data === 'object') {
+            toastr.success(`Entity: "${entity}" with ID: "${response.data.Id}" successfully created`);
+
+            return response.data;
+          }
+
+          throw new Error(`Error on create entity: "${entity}"`);
+        }).catch(error => {
+          catchHttpError(error);
+        });
+    }
+
+    function updateObject(entity, obj) {
+      validateEntity(entity);
+      validateObject(obj, false);
+
+      return $http.post(`${apiUrl}/${entity}`, obj)
+        .then(response => {
+          if (!!response && !!response.data && typeof response.data === 'object') {
+            toastr.warning(`Entity: "${entity}" with ID: "${response.data.Id}" successfully updated`);
+
+            return response.data;
+          }
+
+          throw new Error(`Error on update entity: "${entity}" with ID: "${obj.id}"`);
+        }).catch(error => {
+          catchHttpError(error);
+        });
     }
   }
 })();
