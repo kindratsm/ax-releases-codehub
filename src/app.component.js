@@ -35,26 +35,27 @@
       }
     ];
 
-
+    ctrl.onCreate = onCreate;
+    ctrl.onUpdate = onUpdate;
+    ctrl.onCancel = onCancel;
 
     function onInit() {
       logger.info('App component controller initialized');
-
-      ctrl.onCreate = onCreate;
-      ctrl.onUpdate = onUpdate;
-      ctrl.onCancel = onCancel;
     }
 
-    function onCreate() {
+    function onCreate(event) {
       logger.warn('Create');
+      console.warn(event);
     }
 
-    function onUpdate() {
+    function onUpdate(event) {
       logger.warn('Update');
+      console.warn(event);
     }
 
-    function onCancel() {
+    function onCancel(event) {
       logger.warn('Cancel');
+      console.warn(event);
     }
   }
 })();
