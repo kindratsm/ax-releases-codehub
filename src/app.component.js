@@ -7,9 +7,9 @@
     controllerAs: "$ctrl"
   });
 
-  AppController.$inject = ['logger'];
+  AppController.$inject = ['logger', 'requestService'];
 
-  function AppController(logger) {
+  function AppController(logger, requestService) {
     const ctrl = this;
     ctrl.$onInit = onInit;
 
@@ -41,6 +41,16 @@
 
     function onInit() {
       logger.info('App component controller initialized');
+
+      requestService.getArray('Country')
+        .then(data => {
+          logger.warn(data);
+        })
+
+      requestService.getObject('Country', 5)
+        .then(data => {
+          logger.warn(data);
+        })
     }
 
     function onCreate(event) {

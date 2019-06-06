@@ -10,20 +10,20 @@
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" type="text/css" href="content/app.css" />
   <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../node_modules/angular-resource/angular-resource.min.js"></script>
 </head>
 
 <body>
   <app></app>
 
-  <!-- axReleases.services -->
-  <script type="text/javascript" src="services/services.module.js"></script>
-  <script type="text/javascript" src="services/logger.service.js"></script>
-
-  <!-- axReleases.filters -->
-  <script type="text/javascript" src="filters/filters.module.js"></script>
-  <script type="text/javascript" src="filters/key-value.filter.js"></script>
-  <script type="text/javascript" src="filters/percent.filter.js"></script>
-  <script type="text/javascript" src="filters/splice.filter.js"></script>
+  <!-- axReleases.core -->
+  <script type="text/javascript" src="core/core.module.js"></script>
+  <script type="text/javascript" src="core/core.constants.js"></script>
+  <script type="text/javascript" src="core/services/logger.service.js"></script>
+  <script type="text/javascript" src="core/services/request.service.js"></script>
+  <script type="text/javascript" src="core/filters/key-value.filter.js"></script>
+  <script type="text/javascript" src="core/filters/percent.filter.js"></script>
+  <script type="text/javascript" src="core/filters/splice.filter.js"></script>
 
   <!-- axReleases.widgets -->
   <script type="text/javascript" src="widgets/widgets.module.js"></script>
