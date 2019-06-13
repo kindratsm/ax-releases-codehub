@@ -7,9 +7,17 @@
     controllerAs: "$ctrl"
   });
 
-  UsersListController.$inject = [];
+  UsersListController.$inject = ['requestService'];
 
-  function UsersListController() {
+  function UsersListController(requestService) {
     const ctrl = this;
+    ctrl.$onInit = onInit;
+
+    function onInit() {
+      requestService.getArray('User')
+        .then(data => {
+          ctrl.usersArray = data;
+        })
+    }
   }
 })();

@@ -1,0 +1,2 @@
+<customers-list on-select="$ctrl.selectedId = id"></customers-list>
+<customer-details customer-id="$ctrl.selectedId" is-master-detail="true" on-action="$ctrl.refresh()"></customer-details>

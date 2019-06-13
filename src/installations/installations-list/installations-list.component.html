@@ -1,1 +1,21 @@
-<h4>Installations List</h4>
+<h4 class="text-center">Installations</h4>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CustomerId</th>
+        <th>VersionId</th>
+        <th>RefDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="installation in $ctrl.installationsArray">
+        <td>{{installation.Id}}</td>
+        <td>{{installation.CustomerId}}</td>
+        <td>{{installation.VersionId}}</td>
+        <td>{{installation.RefDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,8 @@
 (function () {
   "use strict";
 
-  angular.module("axReleases.installations", ["axReleases.widgets"]);
+  angular.module("axReleases.installations", [
+    "axReleases.core",
+    "axReleases.widgets"
+  ]);
 })();

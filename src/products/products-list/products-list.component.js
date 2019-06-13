@@ -7,9 +7,17 @@
     controllerAs: "$ctrl"
   });
 
-  ProductsListController.$inject = [];
+  ProductsListController.$inject = ['requestService'];
 
-  function ProductsListController() {
+  function ProductsListController(requestService) {
     const ctrl = this;
+    ctrl.$onInit = onInit;
+
+    function onInit() {
+      requestService.getArray('Product')
+        .then(data => {
+          ctrl.productsArray = data;
+        });
+    }
   }
 })();

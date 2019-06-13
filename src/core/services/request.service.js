@@ -10,6 +10,7 @@
     this.getObject = getObject;
     this.createObject = createObject;
     this.updateObject = updateObject;
+    this.deleteObject = deleteObject;
 
     function validateEntity(entity) {
       if (!entity || typeof entity !== 'string') {
@@ -110,6 +111,11 @@
         }).catch(error => {
           catchHttpError(error);
         });
+    }
+
+    function deleteObject(entity, id) {
+      validateEntity(entity);
+      validateId(id);
     }
   }
 })();

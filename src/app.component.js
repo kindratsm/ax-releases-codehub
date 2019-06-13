@@ -35,37 +35,8 @@
       }
     ];
 
-    ctrl.onCreate = onCreate;
-    ctrl.onUpdate = onUpdate;
-    ctrl.onCancel = onCancel;
-
     function onInit() {
       logger.info('App component controller initialized');
-
-      requestService.getArray('Country')
-        .then(data => {
-          logger.warn(data);
-        })
-
-      requestService.getObject('Country', 5)
-        .then(data => {
-          logger.warn(data);
-        })
-    }
-
-    function onCreate(event) {
-      logger.warn('Create');
-      console.warn(event);
-    }
-
-    function onUpdate(event) {
-      logger.warn('Update');
-      console.warn(event);
-    }
-
-    function onCancel(event) {
-      logger.warn('Cancel');
-      console.warn(event);
     }
   }
 })();

@@ -7,9 +7,17 @@
     controllerAs: "$ctrl"
   });
 
-  InstallationsListController.$inject = [];
+  InstallationsListController.$inject = ['requestService'];
 
-  function InstallationsListController() {
+  function InstallationsListController(requestService) {
     const ctrl = this;
+    ctrl.$onInit = onInit;
+
+    function onInit() {
+      requestService.getArray('Installation')
+        .then(data => {
+          ctrl.installationsArray = data;
+        })
+    }
   }
 })();
