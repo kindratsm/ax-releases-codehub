@@ -116,6 +116,15 @@
     function deleteObject(entity, id) {
       validateEntity(entity);
       validateId(id);
+      return $http.delete(`${apiUrl}/${entity}/${id}`)
+        .then(response => {
+          if (response.status === 204) {
+            toastr.warning(`Entity: "${entity}" with ID: "${id}" successfully delete`);
+          }
+        })
+        .catch(error => {
+          catchHttpError(error);
+        });
     }
   }
 })();
