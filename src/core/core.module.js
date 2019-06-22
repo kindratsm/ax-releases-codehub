@@ -2,6 +2,7 @@
   'use strict';
 
   angular.module('axReleases.core', [
-    'ngResource'
+    'ngResource',
+    'ui.router'
   ]);
 })();

@@ -1,13 +1,15 @@
 (function () {
   "use strict";
 
-  angular.module("axReleases.customers").component("customersList", {
-    templateUrl: "customers/customers-list/customers-list.component.html",
-    controller: CustomersListController,
-    bindings: {
-      onSelect: '&'
-    }
-  });
+  angular
+    .module("axReleases.customers")
+    .component("customersList", {
+      templateUrl: "customers/customers-list/customers-list.component.html",
+      controller: CustomersListController,
+      bindings: {
+        onSelect: '&'
+      }
+    });
 
   CustomersListController.$inject = ['$scope', 'customersService'];
 
@@ -34,7 +36,6 @@
     }
 
     function select(customer) {
-      ctrl.selectedId = customer.Id;
       ctrl.onSelect({ id: customer.Id });
     }
   }

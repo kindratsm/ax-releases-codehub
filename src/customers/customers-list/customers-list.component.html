@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="customer in $ctrl.customersArray" ng-click="$ctrl.select(customer)"
+      <tr ng-repeat="customer in $ctrl.customersArray" ng-click="$ctrl.selectedId = customer.Id" ng-dblclick="$ctrl.select(customer)"
         ng-class="{ info: customer.Id===$ctrl.selectedId}">
         <td>{{customer.Id}}</td>
         <td>{{customer.Name}}</td>

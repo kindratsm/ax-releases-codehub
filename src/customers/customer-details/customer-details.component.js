@@ -1,18 +1,13 @@
 (function () {
   'use strict';
 
-  // Usage:
-  // 
-  // Creates:
-  // 
-
-  angular.module('axReleases.customers')
+  angular
+    .module('axReleases.customers')
     .component('customerDetails', {
       templateUrl: 'customers/customer-details/customer-details.component.html',
       controller: CustomerDetailsController,
       bindings: {
         customerId: '<',
-        isMasterDetail: '<',
         onAction: '&'
       },
     });
@@ -63,6 +58,7 @@
     function onCancel(event) {
       logger.warn('Cancel');
       console.warn(event);
+      ctrl.onAction();
     }
   }
 })();

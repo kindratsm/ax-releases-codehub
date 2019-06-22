@@ -1,9 +1,17 @@
-<div>
+<div class="d-flex w-100">
   <img height="70" src="content/images/logo.png" />
   <h1>Welcome to {{ $ctrl.title }}!</h1>
 </div>
 
-<div>
+<div class="d-flex">
+  <div class="col-2">
+    <ax-menu></ax-menu>
+  </div>
+  <div class="col-10">
+    <ui-view></ui-view>
+  </div>
+
+  <!--
   <user-add></user-add>
   <users-list></users-list>
   <products-list></products-list>
@@ -21,4 +29,5 @@
   <p>{{$ctrl.obj | keyValue}}</p>
   <p>{{$ctrl.value | percent }}</p>
   <p>{{$ctrl.array | splice:1:1}}</p>
+  -->
 </div>
