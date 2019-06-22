@@ -7,18 +7,20 @@
       templateUrl: "customers/customers-list/customers-list.component.html",
       controller: CustomersListController,
       bindings: {
-        onSelect: '&'
+        onCreate: '&',
+        onEdit: '&'
       }
     });
 
-  CustomersListController.$inject = ['$scope', 'customersService'];
+  CustomersListController.$inject = ['$scope', 'common', 'customersService'];
 
-  function CustomersListController($scope, customersService) {
+  function CustomersListController($scope, common, customersService) {
     const ctrl = this;
     ctrl.$onInit = onInit;
+    ctrl.onDelete = onDelete;
     ctrl.select = select;
 
-    $scope.$on('refresh', onRefresh);
+    $scope.$on('refresh', refresh);
 
     function onInit() {
       loadCustomers();
@@ -31,12 +33,23 @@
         });
     }
 
-    function onRefresh() {
+    function refresh() {
       loadCustomers();
     }
 
+    function onDelete(id) {
+      customersService.deleteCustomer(id)
+        .then(() => {
+          refresh();
+        });
+    }
+
     function select(customer) {
-      ctrl.onSelect({ id: customer.Id });
+      if (!!customer && common.isValidId(customer.Id)) {
+        ctrl.onEdit({
+          id: customer.Id
+        });
+      }
     }
   }
 })();

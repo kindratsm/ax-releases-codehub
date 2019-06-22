@@ -22,7 +22,7 @@
 
   function GlobalExceptionHandler($delegate) {
     return function (exception, cause) {
-      toastr.error(exception);
+      toastr.error(JSON.stringify(exception));
       $delegate(exception, cause);
     };
   }

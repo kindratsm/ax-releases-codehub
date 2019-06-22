@@ -44,8 +44,10 @@
     }
 
     function onCreate(event) {
-      logger.warn('Create');
-      console.warn(event);
+      customersService.createCustomer(ctrl.customer)
+        .then(data => {
+          ctrl.onAction();
+        });
     }
 
     function onUpdate(event) {

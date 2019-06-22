@@ -15,11 +15,18 @@
         component: 'customersList',
         isMenuItem: true,
         resolve: {
-          onSelect: ['$state', $state => {
+          onCreate: ['$state', $state => {
+            return function () {
+              $state.go('customer');
+            }
+          }],
+          onEdit: ['$state', 'common', ($state, common) => {
             return function (id) {
-              $state.go('customer', {
-                id: id
-              });
+              if (common.isValidId(id)) {
+                $state.go('customer', {
+                  id
+                });
+              }
             };
           }]
         }
